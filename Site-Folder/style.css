@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f8f8f8;
+  }
+  h1 {
+    color: #333;
+  }
+  form {
+    margin-bottom: 20px;
+  }
+  #products {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }

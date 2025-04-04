@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Магазин | Торгсофт Тест</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Тестовий магазин</h1>
+
+  <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <label>Завантажити файл вигрузки (CSV/YML):</label>
+    <input type="file" name="uploadfile" required />
+    <button type="submit">Завантажити</button>
+  </form>
+
+  <div id="products">
+    <!-- Тут буде список товарів після обробки -->
+  </div>
+</body>
+</html>
