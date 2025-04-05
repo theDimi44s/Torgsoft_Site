@@ -1,21 +1,206 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <title>Магазин | Торгсофт Тест</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин Приколів (Торгсофт Тест)</title>
+  <!-- Основна таблиця стилю -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
+<!-- Шапка сайту -->
 <body>
-  <h1>Тестовий магазин</h1>
+  <header class="top-header">
+    <div class="logo">
+      <img src="../pic/logo-test-1.jpg" alt="Torgsoft-Site Test">
+    </div>
+    <div class="search-bar">
+      <select><option>Всі категорії</option></select>
+      <input type="text" placeholder="Пошук товару в магазині">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-actions">
+      <a href="#"><i class="fas fa-user"></i> Особистий кабінет</a>
+      <a href="#"><i class="fas fa-phone"></i> (050) 53-00-986</a>
+      <a href="../Site-Folder/shop-cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+    </div>
+  </header>
 
-  <form action="upload.php" method="POST" enctype="multipart/form-data">
-    <label>Завантажити файл вигрузки (CSV/YML):</label>
-    <input type="file" name="uploadfile" required />
-    <button type="submit">Завантажити</button>
-  </form>
+  <!-- Головне меню -->
 
-  <div id="products">
-    <!-- Тут буде список товарів після обробки -->
+  <nav class="top-menu">
+    <a href="#">Для чоловіків</a>
+    <a href="#">Для жінок</a>
+    <a href="#">Дітям</a>
+    <a href="#">Бонуси</a>
+    <a href="../Site-Folder/contacts.html">Контакти</a>
+    <a href="../Site-Folder/delivery.html">Доставка і оплата</a>
+  </nav>
+
+<!-- Категорії сайту -->
+
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">🎁 Оригінальні Подарунки</a></li>
+          <li><a href="#">🎉 Приколи та Розіграші</a></li>
+          <li><a href="#">🎈 Прикольні Подарунки</a></li>
+          <li><a href="#">📦 Подарункові Набори</a></li>
+          <li><a href="#">🧸 Прикольні Сувеніри</a></li>
+          <li><a href="#">🏅 Дипломи Кубки Медалі</a></li>
+          <li><a href="#">🎊 Все для Свята</a></li>
+          <li><a href="#">🔞 Подарунки для Дорослих</a></li>
+          <li><a href="#">🧒 Іграшки для Дітей</a></li>
+          <li><a href="#">🏠 Подарунки для Дому</a></li>
+          <li><a href="#">💻 Електронні гаджети</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Основний контент -->
+
+    <main>
+      <div class="slider">
+        <img src="slider1.jpg" alt="Акція">
+      </div>
+
+      <div class="main-buttons">
+        <button class="gift">Подарункові набори</button>
+        <button class="fun">Прикольні сувеніри</button>
+        <button class="photo">Етикетки з фото</button>
+      </div>
+      
+      <div class="product-tabs">
+        <button class="tab active">Новеньке</button>
+        <button class="tab">Цікаві подарунки</button>
+      </div>
+      
+      <div class="cards-block" id="new-items">
+        <section class="cards"></section>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 1">
+          <p>Назва товару 1</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 2">
+          <p>Назва товару 2</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 3">
+          <p>Назва товару 3</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 4">
+          <p>Назва товару 4</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+      </div>
+ 
+
+      <div class="cards-block" id="interesting-gifts" style="display:none;">
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 5">
+          <p>Назва товару 1</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 6">
+          <p>Назва товару 2</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 7">
+          <p>Назва товару 3</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 8">
+          <p>Назва товару 4</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+      </div>
+
+      <!-- Товари нижче вкладок -->
+
+      <section class="cards">
+        <div class="card">
+          <img src="product1.jpg" alt="Товар 9">
+          <p>Назва товару 1</p>
+           <button onclick="addToCart('prod1', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product2.jpg" alt="Товар 10">
+          <p>Назва товару 2</p>
+          <button onclick="addToCart('prod2', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product3.jpg" alt="Товар 11">
+          <p>Назва товару 3</p>
+          <button onclick="addToCart('prod3', 'Product_Example')">У кошик</button>
+        </div>
+        <div class="card">
+          <img src="product3.jpg" alt="Товар 12">
+          <p>Назва товару 3</p>
+          <button onclick="addToCart('prod4', 'Product_Example')">У кошик</button>
+        </div>
+      </section>
+      
+    </main>
   </div>
+
+  <!-- Підвал сайту -->
+
+  <footer>
+    <div class="footer-columns">
+      <div>
+        <h4>Категорії</h4>
+        <ul>
+          <li>Магазин приколів Київ Петрівка</li>
+          <li>Купити приколи та розіграші</li>
+          <li>Магазин прикольних сувенірів</li>
+          <li>Жартівливі подарунки</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Інформація</h4>
+        <ul>
+          <li>Про компанію</li>
+          <li>Доставка і оплата</li>
+          <li>Політика безпеки</li>
+          <li>Умови угоди</li>
+          <li>Контакти</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Покупцеві</h4>
+        <ul>
+          <li>Карта сайту</li>
+          <li>Новини та Статті</li>
+          <li>Як замовити?</li>
+          <li>Відгуки покупців</li>
+          <li>Акції та розпродажі</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Особистий кабінет</h4>
+        <ul>
+          <li>Реєстрація</li>
+          <li>Авторизація</li>
+          <li>Мої закладки</li>
+          <li>Історія замовлень</li>
+          <li>Підписка на новини</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Опис інтернет-магазину</p>
+    </div>
+  </footer>
+  <script src="../Scripts/shop-cart-add.js"></script>
+  <script src="../Scripts/switch-tab-product.js"></script>
 </body>
 </html>
