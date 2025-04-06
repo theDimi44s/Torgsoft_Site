@@ -1,4 +1,6 @@
 /* Базове оформлення */
+/*
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,51 +8,15 @@ body {
   color: #333;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 ul {
   list-style: none;
   padding: 0;
 }
 
-/* Хедер */
-.top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-.logo img {
-  height: 50px;
-}
-.search-bar {
-  flex: 1;
-  display: flex;
-  gap: 5px;
-  margin: 0 20px;
-}
-.search-bar input {
-  flex: 1;
-  padding: 5px;
-}
-.search-bar button {
-  padding: 5px 10px;
-  background-color: #ff3366;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-.header-actions a {
-  margin-left: 15px;
-  font-size: 0.9em;
-}
+/* Хедер */ /*
 
-/* Головне меню */
+
+/* Головне меню */ /*
 .top-menu {
   background-color: #2d4e76;
   padding: 10px;
@@ -63,7 +29,7 @@ ul {
   font-weight: bold;
 }
 
-/* Контейнер */
+/* Контейнер */ /*
 .container {
   display: flex;
   max-width: 1200px;
@@ -71,7 +37,7 @@ ul {
   gap: 20px;
 }
 
-/* Бічне меню */
+/* Бічне меню */ /*
 .sidebar {
   width: 250px;
   background-color: #fff;
@@ -87,7 +53,7 @@ ul {
   background-color: #f9f9f9;
 }
 
-/* Головна частина */
+/* Головна частина */ /*
 main {
   flex: 1;
 }
@@ -118,7 +84,7 @@ button.photo {
   background-color: #e6f5d0;
 }
 
-/* Вкладки */
+/* Вкладки */ /*
 .product-tabs {
   display: flex;
   gap: 10px;
@@ -136,7 +102,7 @@ button.photo {
   color: #fff;
 }
 
-/* Карточки товарів */
+/* Карточки товарів */ /*
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -157,7 +123,7 @@ button.photo {
   border-radius: 5px;
 }
 
-/* Футер */
+/* Футер */ /*
 footer {
   background-color: #2d4e76;
   color: #fff;
@@ -187,4 +153,165 @@ footer {
   font-size: 0.85em;
   border-top: 1px solid #fff;
   margin-top: 20px;
+}
+
+*/
+
+/* Тіло */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 60px;
+}
+.btn-filter {
+  margin: 10px;
+}
+.card {
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.modal-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.modal-title-mb-3 {
+
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Хедер верхній блок */
+
+/* .authorization {
+  display: flex;
+  padding: 10px 10px 5px 950px;
+  justify-content: space-between;
+} */
+
+.top-bar {
+  background-color: #f8fff5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.language-selector{
+  display: flex;
+  font-size: small;
+  margin-left: 70px;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-categories {
+  padding: 5px;
+  margin-right: 60px;
+  font-weight: bolder;
+  font-size: small;
+  display: flex;
+  gap: 10px; /* Добавляет отступы между ссылками категорий */
+}
+
+.text-center-mb-4 { 
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+
+}
+
+/* Хедер меню */
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.logo img {
+  height: 50px;
+}
+.search-bar {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  margin: 0 50px;
+}
+.search-bar input {
+  flex: 1;
+  padding: 5px;
+}
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #ff3366;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.header-actions a {
+  margin-left: 5px;
+  margin-right: 50px;
+  font-size: 0.9em;
+}
+
+/* Main */
+
+main {
+  flex: 1;
+}
+.slider img {
+  width: 100%;
+  border-radius: 5px;
+}
+.main-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+.main-buttons button {
+  flex: 1;
+  padding: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.gift {
+  background-color: #d1e9ff;
+}
+button.fun {
+  background-color: #ffe6f0;
+}
+button.photo {
+  background-color: #e6f5d0;
 }
