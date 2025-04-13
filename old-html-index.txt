@@ -1,0 +1,75 @@
+
+  <!-- Кнопки для фільтрації товарів -->
+    <div class="text-center">
+      <button class="btn btn-primary btn-filter" data-category="new">Новеньке</button>
+      <button class="btn btn-secondary btn-filter" data-category="interesting">Цікавеньке</button>
+    </div>
+
+  <!-- Модальне вікно -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <h5 class="modal-title-mb-3">Дякуємо за покупку!</h5>
+        <button type="button" class="btn-btn-success-me-2" onclick="window.location.href='checkout.html'">Оформити замовлення</button>
+        <button type="button" class="btn-btn-secondary" data-bs-dismiss="modal">Продовжити покупки</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const products = {
+      new: [
+        { name: "Товар 1", price: "500 грн", image: "https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg" },
+        { name: "Товар 2", price: "1200 грн", image: "https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg" },
+        { name: "Товар 3", price: "2500 грн", image: "https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg" }
+      ],
+      interesting: [
+        { name: "Товар 4", price: "850 грн", image: "https://wl-adme.cf.tsp.li/resize/728x/jpg/b08/221/c63ec85c10a9b1c2ff00ccb952.jpg" },
+        { name: "Товар 5", price: "300 грн", image: "https://wl-adme.cf.tsp.li/resize/728x/jpg/b08/221/c63ec85c10a9b1c2ff00ccb952.jpg" },
+        { name: "Товар 6", price: "400 грн", image: "https://wl-adme.cf.tsp.li/resize/728x/jpg/b08/221/c63ec85c10a9b1c2ff00ccb952.jpg" }
+      ]
+    };
+
+// Отримуємо контейнер для товарів
+    const productContainer = document.getElementById('product-container');
+
+    function renderProducts(category) {
+      productContainer.innerHTML = '';
+      products[category].forEach(product => {
+        const col = document.createElement('div');
+        col.className = 'col';
+        col.innerHTML = `
+          <div class="card h-100">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}" />
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.price}</p>
+              <button class="btn btn-outline-primary add-to-cart">В кошик</button>
+            </div>
+          </div>
+        `;
+        productContainer.appendChild(col);
+      });
+    }
+
+    // За замовчуванням показуємо Новеньке
+    renderProducts('new');
+
+    document.querySelectorAll('.btn-filter').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('btn-primary'));
+        button.classList.add('btn-primary');
+        renderProducts(button.getAttribute('data-category'));
+      });
+    });
+
+    // Подія для кнопки "В кошик"
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.classList.contains('add-to-cart')) {
+        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+        cartModal.show();
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
