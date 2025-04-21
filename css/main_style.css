@@ -1,0 +1,407 @@
+/* Базове оформлення */
+body {
+background-color: #f2f2f2;
+padding-top: 50px; /* Збільшено через фіксовану панель */
+font-family: "Montserrat", sans-serif;
+}
+
+/* Верхній бар */
+.top-bar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 999;
+background-color: rgb(242, 240, 240);
+}
+
+/* Верхній контейнер */
+.top-container {
+max-width: 1330px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+}
+
+/* Категорії у верхньому контейнері + контакти + кошик */
+.top-categories,
+.top-actions {
+display: flex;
+gap: 15px;
+align-items: center;
+}
+
+/* Категорії у верхньому контейнері + контакти + кошик */
+.top-categories a,
+.top-actions a {
+text-decoration: none;
+color: #ffffff;
+font-weight: 500;
+font-size: small;
+padding: 5px 10px;
+margin: 0.5px;
+border-radius: 4px;
+display: inline-block;
+transition: background-color 0.3s;
+}
+
+/* Кнопки категорій */
+.top-categories a {
+background-color: #007bff;
+}
+
+/* Кнопки категорій при наведенні */
+.top-categories a:hover {
+background-color: #0056b3;
+}
+
+/* Кнопки дій */
+.top-actions a {
+background-color: #8b4aee;
+}
+
+/* Кнопки дій при наведенні */
+.top-actions a:hover {
+background-color: #6a3db6;
+}
+
+/* Хедер */
+.top-header {
+background-color: #ffffff;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+z-index: 998;
+}
+
+/* Хедер контейнер */
+.header-container {
+max-width: 1330px;
+margin: 0 auto;
+padding: 10px 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+}
+
+                                                        /* Категорії */
+.category-dropdown {
+position: relative;
+width: 200px; /* Фіксована ширина кнопки категорій */
+}
+
+/* Кнопка категорій */
+.category-toggle {
+background-color: #ffc107;
+color: #000;
+border: none;
+padding: 10px 20px;
+border-radius: 6px;
+font-weight: bold;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+width: 100%;
+transition: background-color 0.3s ease;
+}
+
+/* Кнопка категорій при наведенні */
+.category-toggle:hover {
+background-color: #e0a800; /* Темніший відтінок при наведенні */
+}
+
+/* Випадаюче меню категорій */
+.category-menu {
+position: absolute;
+top: 100%;
+left: 0;
+width: 600px; /* Збільшуємо ширину для десктопу */
+background-color: #fff;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+padding: 20px 0;
+opacity: 0;
+visibility: hidden;
+transform: translateY(-10px);
+transition: opacity 0.3s ease, transform 0.3s ease;
+z-index: 10000;
+}
+
+/* Внутрішній контейнер для контенту меню */
+.category-menu .menu-content {
+max-width: 1330px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+padding: 0 20px;
+}
+
+/* Посилання в меню категорій */
+.category-menu a {
+padding: 12px 15px;
+display: flex;
+align-items: center;
+gap: 10px;
+color: #333;
+text-decoration: none;
+border-radius: 4px;
+transition: background-color 0.2s ease;
+font-size: 16px;
+}
+
+/* Посилання в меню категорій при наведенні */
+.category-menu a:hover {
+background-color: #f5f5f5;
+}
+
+/* Відображення меню категорій при активації */
+.category-menu.active {
+opacity: 1 !important;
+visibility: visible !important;
+transform: translateY(0) !important;
+}
+
+/* Пошук */
+.search-container {
+position: relative;
+flex: 1;
+}
+
+/* Поле пошуку */
+.search-container input {
+width: 100%;
+padding: 8px 40px 8px 10px;
+border: 1px solid #ccc;
+border-radius: 6px;
+}
+
+/* Кнопка пошуку */
+.search-container button {
+position: absolute;
+right: 5px;
+top: 50%;
+transform: translateY(-50%);
+background: none;
+border: none;
+color: #555;
+cursor: pointer;
+font-size: 16px;
+}
+
+/* Вибір мови */
+.language-selector select {
+padding: 8px 10px;
+border-radius: 6px;
+border: 1px solid #ccc;
+background-color: #f9f9f9;
+cursor: pointer;
+}
+
+                                                            /* Слайдер */
+.slider {
+position: relative;
+width: 100%;
+height: 400px; /* Висота слайдера */
+overflow: hidden;
+}
+
+.slider-images {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+.slider-img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 15px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+opacity: 0;
+transition: opacity 1s ease; /* Плавне перемикання */
+}
+
+.slider-img.active {
+opacity: 1; /* Показуємо активне зображення */
+}
+
+/* Курсор для підказки */
+.slider:hover {
+cursor: pointer;
+}
+
+/* Main блок */
+main {
+flex: 1;
+}
+
+/* Назва магазину */
+.text-center.mb-4 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* Слайдер зображення
+.slider img {
+width: 100%;
+border-radius: 15px;
+height: 400px;
+object-fit: cover;
+margin-bottom: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+/* Main кнопки */
+.main-buttons {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px 0;
+}
+
+/* Стиль тексту додаткових трьох кнопок в секції */
+.main-buttons.text-center.my-4 a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bolder;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Стиль тексту додаткових трьох кнопок в секції при наведенні */
+.main-buttons.text-center.my-4 a:hover {
+    color: #fff;
+}
+
+/* Кнопки в секції "Товари" */
+.btn-filter {
+margin: 10px;
+}
+
+/* Секція "Товари" */
+.card {
+margin-bottom: 20px;
+transition: transform 0.3s;
+}
+
+/* Картка товару */
+.card:hover {
+transform: scale(1.03);
+}
+
+/* Картка товару - зображення */
+.card-img-top {
+height: 200px;
+object-fit: cover;
+}
+
+/* Картка товару - текст */
+.row-cols-md-3 .col {
+flex: 0 0 33.333333%;
+max-width: 33.333333%;
+padding: 0 15px;
+padding-bottom: 5%;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 767.98px) {
+.row-cols-md-3 .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+
+#main-product-list .card {
+width: 100% !important;
+max-width: 100% !important;
+box-sizing: border-box;
+}
+
+#main-product-list .card-img-top {
+width: 100% !important;
+height: 200px;
+object-fit: cover;
+}
+
+#main-product-list .card-body {
+width: 100% !important;
+}
+
+@media (min-width: 768px) {
+#main-product-list.row-cols-md-3 > * {
+    width: 100% !important;
+}
+}
+
+/* Бургер */
+.burger-toggle {
+display: none;
+background: none;
+border: none;
+font-size: 22px;
+cursor: pointer;
+}
+
+/* Мобільна адаптація */
+@media (max-width: 768px) {
+body {
+    padding-top: 120px; /* Для мобільних з урахуванням двох панелей */
+}
+
+.header-container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search-container {
+    width: 100%;
+}
+
+.language-selector {
+    width: 100%;
+}
+
+.category-dropdown {
+    width: 100%; /* Повна ширина для мобільних */
+}
+
+.category-toggle {
+    padding: 12px 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.category-menu {
+    position: fixed; /* Для мобільних використовуємо fixed */
+    top: 120px; /* Враховуємо висоту .top-bar і .top-header */
+    left: 0;
+    width: 100vw;
+    padding: 15px 0;
+}
+
+.category-menu .menu-content {
+    grid-template-columns: 1fr; /* Одна колонка для мобільних */
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.category-menu a {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.category-menu.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.burger-toggle {
+    display: block;
+}
+}

@@ -4,12 +4,13 @@ let parsedProducts = [];
 // Завантаження продуктів з JSON
 async function loadProducts() {
   try {
-    const response = await fetch('./parser/products.json');
-    parsedProducts = await response.json(); // Зберігаємо продукти в змінну
+    const response = await fetch('../parser/parse_output/products.json');
+    parsedProducts = await response.json();
 
-    displayFeaturedProducts(parsedProducts, 'Новеньке', 'featured-new');
-    displayFeaturedProducts(parsedProducts, 'Цікавеньке', 'featured-interesting');
-    displayFeaturedProducts(parsedProducts, 'all', 'main-product-list');
+    // Рендеримо лише для секцій "Новеньке" і "Цікавеньке"
+    displayFeaturedProducts(parsedProducts, 'new', 'featured-new');
+    displayFeaturedProducts(parsedProducts, 'int', 'featured-interesting');
+    // Прибрали рендеринг для 'main-product-list', це робитиме budget-filter.js
   } catch (error) {
     console.error('Помилка при завантаженні JSON:', error);
   }
@@ -46,21 +47,27 @@ function displayFeaturedProducts(products, targetTag, containerId) {
       ${filtered.map(product => `
         <div class="col">
           <div class="card h-100">
-            <img src="${product.image || 'placeholder.jpg'}" class="card-img-top" alt="${product.name}">
+            <img src="${product.image || 'placeholder.jpg'}" class="card-img-top" alt="${product.short_name}">
             <div class="card-body d-flex flex-column justify-content-between">
               <div>
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text">${product.price} грн</p>
-                <div class="tags mb-2">
-                  ${product.tags?.map(tag => `<span class="badge bg-info text-dark me-1">${tag}</span>`).join('')}
-                </div>
+                <h5 class="card-title">${product.short_name}</h5>
+                ${product.discount_price && product.discount_price !== product.price ? `
+                  <p class="card-text">
+                    <span style="text-decoration: line-through; color: grey;">${product.price} грн</span>
+                    <span style="color: red;">${product.display_price} грн</span>
+                  </p>
+                ` : `
+                  <p class="card-text">${product.display_price} грн</p>
+                `}
+                <p class="card-text stock-status">
+                <span style="font-weight: bolder;">${product.stock_status}</span></p>
               </div>
             </div>
             <div class="card-footer bg-transparent border-0">
               <button class="btn btn-outline-primary btn-sm add-to-cart" 
                       data-id="${product.id || product.sku}" 
-                      data-name="${product.name}" 
-                      data-price="${product.price}">
+                      data-name="${product.short_name}" 
+                      data-price="${product.display_price}">
                 У кошик
               </button>
             </div>
@@ -70,7 +77,6 @@ function displayFeaturedProducts(products, targetTag, containerId) {
     </div>
   `;
 
-  // Додаємо логування HTML-вмісту
   console.log(`HTML-вміст ${containerId}:`, container.innerHTML);
 }
 
@@ -105,5 +111,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFilterButtons();
 });
 
-// Експортуємо parsedProducts
-export { parsedProducts };
+// Експортуємо функції та змінні
+export { parsedProducts, displayFeaturedProducts };
